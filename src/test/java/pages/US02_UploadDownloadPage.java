@@ -21,6 +21,4 @@ public class US02_UploadDownloadPage {
 
     @FindBy(xpath ="//*[@id='downloadButton']")
     public WebElement downLoad;
-
-
 }

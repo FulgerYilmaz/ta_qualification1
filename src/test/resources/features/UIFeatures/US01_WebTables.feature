@@ -3,7 +3,7 @@ Feature: US01 WebTables
 
   Background:
     Given user goes to landing page
-    And user presses the elements button
+    And user presses the element button
 
   Scenario Outline:TC01_ADD_USER
     And user presses the web tables button
@@ -14,6 +14,7 @@ Feature: US01 WebTables
     And user writes age "<age>"
     And user writes salary "<salary>"
     And user writes department "<department>"
+    And user clicks the submit button
     And user enters "<firstname>" in search button
     Then verify the firstName added"<firstname>"
 
@@ -23,8 +24,4 @@ Feature: US01 WebTables
       | zehra     | bektas     | zhra@gmail.com    | 25  | 50000  | TESTER     |
       | lion      | tiger      | aslan@gmail.com   | 12  | 70000  | TESTER     |
 
-  Scenario:TC02_DELETE
-    When user creates list
-    And user presses the edit button
-    And user presses the delete button
-    Then verify the record is deleted
+

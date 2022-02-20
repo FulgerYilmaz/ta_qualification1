@@ -3,7 +3,7 @@ Feature: US02 UploadDownload
 
   Background:
     Given user goes to landing page
-    And user presses the elements button
+    And user presses the element button
 
   Scenario:TC01_Upload_and_Download
     When user clicks the upload button

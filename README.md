@@ -4,7 +4,7 @@
 
 - Test results monitoring tool [Calliope.pro](https://app.calliope.pro)
 
-- Environment and specs: [automationpractice](http://automationpractice.com/index.php)
+- Environment and specs: [automationpractice](https://demoqa.com/)
 
 ### dependencies:
 - [selenium-java](https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java)
@@ -20,7 +20,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 - *clone the repo:*
 ```shell
-git clone https://github.com/mahmutkaya/com.automationpractice.git
+git clone https://github.com/FulgerYilmaz/ta_qualification1.git
 ```
 - *set project sdk as 1.8*
 
@@ -39,16 +39,19 @@ Running tests in CI/CD pipeline:
  API_KEY: Required to import tests to Calliope.pro. Can be found on your Calliope.pro account page
  PROFILE_ID: Tests will be imported in one of your profiles on Calliope.pro. 
 ```  
-
-### About scenarios:
+### About api scenarios:
 Automated scenarios are:
-- Create account (api and ui)
-- Login (ui)
-- Add to cart (api)
-- Delete from cart (api)
+- Get Pet Request (api)
+- Get Pet Request (api)
+- Post Pet Request (api)
 
-These are the most critical features for an ecommerce website.
-If website visitors can not add items to the cart and remove it if they did not like it,
-can not sign up and sign in to check and track their orders, then they have no reasons to stay.
+### About ui scenarios:
+Automated scenarios are:
+- Elements Section (ui)
+- Elements Section (ui)
+- Widgets Section  (ui)
 
-For the next step: Automate **Make payment** scenarios to complete smoke suit.
+These are the most critical features for website.
+If website visitors can not click the section and see the features, they will not be able to see the content, then nothing
+reasons for staying. 
+For the next step: Automate rest of sections for %100 coverage.

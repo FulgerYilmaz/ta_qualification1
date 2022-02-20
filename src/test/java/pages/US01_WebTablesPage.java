@@ -43,12 +43,6 @@ public class US01_WebTablesPage {
     @FindBy(xpath = "(//div[@class='rt-tr -odd'])[1]")
     public WebElement firstRow;
 
-    @FindBy(id="edit-record-1")
-    public WebElement edit;
-
-    @FindBy(id="delete-record-1")
-    public WebElement deleteTab;
-
     @FindBy(xpath = "//div[@class='card-up']")
     public WebElement elementsCard;
 }

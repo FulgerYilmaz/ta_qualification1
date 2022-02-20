@@ -6,8 +6,6 @@ import io.restassured.response.Response;
 import static io.restassured.RestAssured.given;
 
 public class ApiRequestsUtils {
-
-
     public static Response getRequest( String endPoint){
 
         Response response = given().headers(
@@ -24,6 +22,4 @@ public class ApiRequestsUtils {
 
         return response;
     }
-
-
 }

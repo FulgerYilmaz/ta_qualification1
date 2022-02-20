@@ -3,7 +3,6 @@ package stepdefinitions.ui_step_defs;
 import io.cucumber.java.en.*;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import pages.US02_UploadDownloadPage;
 import utilities.Driver;
@@ -19,21 +18,16 @@ public class US02_UploadDownloadStepDefinitions {
     @And("user clicks the upload button")
     public void user_clicks_the_upload_button() {
         actions.sendKeys(Keys.PAGE_DOWN).perform();
-        ReusableMethods.waitFor(1);
-        uploadDownloadPage.uploadTab.click();
+        Driver.waitAndClick( uploadDownloadPage.uploadTab);
     }
     @Given("user chooses the file button")
     public void user_chooses_the_file_button() {
-         WebElement upload_file = uploadDownloadPage.chooseFileButton;
-         upload_file.sendKeys("C:\\Users\\Public\\Pictures\\New folder");
-          uploadDownloadPage.chooseFileButton.click();
           uploadDownloadPage.chooseFileButton.sendKeys("C:/Users/Asus/Pictures/message.png");
     }
     @Given("verify the visibility of the selected file")
     public void verify_the_visibility_of_the_selected_file() {
         System.out.println(uploadDownloadPage.selectFileVerifyTab.getText());
         Assert.assertTrue(uploadDownloadPage.selectFileVerifyTab.getText().contains("message"));
-
     }
     @Given("user download a file")
     public void user_download_a_file() {
@@ -42,11 +36,7 @@ public class US02_UploadDownloadStepDefinitions {
     }
     @Given("Verify the visibility of the downloaded file")
     public void Verify_the_visibility_of_the_downloaded_file() {
-        //String filePath="C:/Users/BEST TECH/Downloads/sampleFile.jpeg";
         ReusableMethods.waitFor(1);
-        //  boolean isDownload= Files.exists(Paths.get(filePath));
-        //  Assert.assertTrue(isDownload);
-        Assert.assertTrue(Files.exists(Paths.get("C:/Users/BEST TECH/Downloads/sampleFile.jpeg")));
-
+        Assert.assertTrue(Files.exists(Paths.get("C:/Users/Asus/Downloads/sampleFile.jpeg")));
     }
 }

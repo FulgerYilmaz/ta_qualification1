@@ -2,14 +2,10 @@ package stepdefinitions.ui_step_defs;
 
 import io.cucumber.java.en.*;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import pages.US01_WebTablesPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
-import java.util.ArrayList;
-import java.util.List;
 
 public class US01_WebTablesStepDefinitions {
 
@@ -18,24 +14,19 @@ public class US01_WebTablesStepDefinitions {
 
     @Given("user goes to landing page")
     public void user_goes_to_landing_page()  {
-
         Driver.getDriver().get(ConfigReader.getProperty("demoqa_url"));
     }
     @Then("user presses the element button")
     public void user_presses_the_element_button() {
         uS01_WebTablesPage.elementsCard.click();
-
     }
     @And("user presses the web tables button")
     public void user_presses_the_web_tables_button() {
          Driver.waitAndClick(uS01_WebTablesPage.webTables);
-        // ReusableMethods.waitFor(1);
     }
     @Given("user clicks the add button")
     public void user_click_the_add_button() {
          Driver.waitAndClick(uS01_WebTablesPage.add);
-         Driver.waitAndClick(uS01_WebTablesPage.submit);
-
     }
     @And("user writes firstName {string}")
     public void user_writes_firstName(String arg0) {
@@ -46,7 +37,6 @@ public class US01_WebTablesStepDefinitions {
     public void user_writes_lastName(String arg0) {
         uS01_WebTablesPage.lastName.clear();
         uS01_WebTablesPage.lastName.sendKeys(arg0);
-
     }
     @And("user writes email {string}")
     public void user_writes_email(String arg0) {
@@ -65,8 +55,12 @@ public class US01_WebTablesStepDefinitions {
     }
     @And("user writes department {string}")
     public void user_writes_department(String arg0) {
-
         uS01_WebTablesPage.department.sendKeys(arg0);
+    }
+    @And("user clicks the submit button")
+    public void userClicksTheSubmitButton() {
+        uS01_WebTablesPage.submit.click();
+        ReusableMethods.waitFor(1);
     }
     @And("user enters {string} in search button")
     public void user_enters_firstName_in_search_button(String arg0) {
@@ -77,32 +71,5 @@ public class US01_WebTablesStepDefinitions {
     public void verify_the_firstName_added (String firstName) {
         System.out.println(uS01_WebTablesPage.firstRow.getText());
         Assert.assertTrue(uS01_WebTablesPage.firstRow.getText().contains(firstName));
-    }
-    @And("user creates list")
-    public void user_create_list() {
-
-        List <WebElement> elems= Driver.getDriver().findElements(By.xpath("//div[@class='rt-tr -odd']"));
-        List list=new ArrayList();
-        list= ReusableMethods.getElementsText(elems);
-        System.out.println(list);
-    }
-    @And("user presses the edit button")
-    public void user_presses_the_edit_button() {
-        Driver.waitAndClick(uS01_WebTablesPage.edit);
-    }
-    @And("user presses the delete button")
-    public void Press_Delete_Button() {
-        ReusableMethods.waitFor(1);
-        name = uS01_WebTablesPage.firstRow.getText();
-        uS01_WebTablesPage.deleteTab.click();
-    }
-    @Then("verify the record is deleted")
-    public void verify_the_record_is_deleted() {
-
-        System.out.println();
-        System.out.print("name :   "+ name);
-        System.out.println();
-        System.out.print("first row:   "+ uS01_WebTablesPage.firstRow.getText());
-        Assert.assertTrue(uS01_WebTablesPage.firstRow.getText().equals(name));
     }
 }
