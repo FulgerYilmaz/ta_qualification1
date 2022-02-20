@@ -19,11 +19,11 @@ public class US03_WidgetsStepDefinitions {
       Actions actions = new Actions(Driver.getDriver());
       US03_WidgetsPage datePicker = new US03_WidgetsPage();
 
-    @And("user clicks datePicker")
-    public void user_clicks_datePicker() {
+    @And("user clicks calender")
+    public void user_clicks_calender() {
         actions.sendKeys(Keys.PAGE_DOWN).perform();
         ReusableMethods.waitFor(1);
-        datePicker.dataPickerTab.click();
+        Driver.waitAndClick( datePicker.dataPickerTab);
         actions.sendKeys(Keys.PAGE_UP).perform();
         ReusableMethods.waitFor(2);
 
@@ -34,6 +34,7 @@ public class US03_WidgetsStepDefinitions {
     @Given("User selects Year, Month, Day")
     public void User_selects_Year_Month_Day (List<Map<String, String>> dateTable) {
         for (Map<String, String> map : dateTable) {
+            ReusableMethods.waitFor(1);
             Select selectYear = new Select(datePicker.selectYear);
             selectYear.selectByValue(map.get("Year"));
             Select selectMonth = new Select(datePicker.selectMonths);
@@ -109,34 +110,29 @@ public class US03_WidgetsStepDefinitions {
             Assert.assertEquals(expectedMonth + "/" + expectedDay + "/" + expectedYear, datePicker.dataPickerTab.getAttribute("value"));
         }
 
-        @And("User clicks calendar")
-        public void User_clicks_calendar() {
+        @And("User clicks calender")
+        public void User_clicks_calender() {
 
-            datePicker.dateSelected1.click();
+          Driver.waitAndClick(datePicker.dateSelected1);
         }
-        @And("user {year},{months},{day} enters")
-        public void user_enters (String year, String months, String day) {
-
-        }
-
 
         @And("user writes {string},{string},{string}")
         public void user_writes (String year, String months, String day) {
         // year
-        Select dropdownYil = new Select(datePicker.selectYear);
-        dropdownYil.selectByVisibleText(year);
+        Select dropdownYear = new Select(datePicker.selectYear);
+        dropdownYear.selectByVisibleText(year);
         // months
-        int ayindexi = Integer.parseInt(months) - 1;
+        int dataMonths = Integer.parseInt(months) - 1;
         Select dropdownAy = new Select(datePicker.selectMonths);
-        dropdownAy.selectByIndex(ayindexi);
+        dropdownAy.selectByIndex(dataMonths);
         ReusableMethods.waitFor(1);
         // day
         for (int i = 1; i < 8; i++) {
             ReusableMethods.waitFor(1);
-            WebElement takvimgunu = datePicker.getDay(i);
-            if (takvimgunu.getText().equals("1")) {
-                int belligun = Integer.parseInt(day);
-                datePicker.getDay((i + belligun - 1)).click();
+            WebElement calenderDay = datePicker.getDay(i);
+            if (calenderDay.getText().equals("1")) {
+                int certainDay = Integer.parseInt(day);
+                datePicker.getDay((i + certainDay - 1)).click();
                 ReusableMethods.waitFor(1);
                 break;
             } else {
@@ -148,7 +144,7 @@ public class US03_WidgetsStepDefinitions {
         @And("verify that info {string},{string},{string}")
         public void verify_that_info(String year, String months, String day) {
         String sendDate = months + "/" + day + "/" + year;
-        System.out.println("send date:  " + months + "/" + day + "/" + year);
+       // System.out.println("send date:  " + months + "/" + day + "/" + year);
         System.out.println("respond date: " + datePicker.dateLastTab.getAttribute("value"));
         System.out.println("-----------------------------------------------------------");
         Assert.assertTrue(datePicker.dateLastTab.getAttribute("value").equals(sendDate));
@@ -156,7 +152,8 @@ public class US03_WidgetsStepDefinitions {
     }
         @Given("user clicks widgets tab")
         public void user_clicks_widgets_tab() {
-        datePicker.widgetTab.click();
+
+        Driver.waitAndClick(datePicker.widgetTab);
     }
 
         @And("user selects the year {string}")
@@ -184,15 +181,15 @@ public class US03_WidgetsStepDefinitions {
     }
 
 
-          @And("user selects months {string}")
-          public void user_selects_months(int arg0) {
+          @And("user selects month 12")
+          public void user_selects_month12(int arg0) {
 
           jsx.executeScript("window.scrollBy(0,100)", "");
           datePicker.selectDateMonth.click();
           datePicker.getMonth(arg0).click();
     }
-          @And("user selects day {string}")
-          public void user_selects_day(int day) {
+          @And("user selects day 19")
+          public void user_selects_day19 (int day) {
 
           ReusableMethods.waitFor(1);
              for (int m = 1; m < 8; m++) {

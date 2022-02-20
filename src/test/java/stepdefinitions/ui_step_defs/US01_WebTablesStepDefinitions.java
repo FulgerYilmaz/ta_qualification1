@@ -21,8 +21,8 @@ public class US01_WebTablesStepDefinitions {
 
         Driver.getDriver().get(ConfigReader.getProperty("demoqa_url"));
     }
-    @Then("user presses the elements button")
-    public void user_presses_the_elements_button() {
+    @Then("user presses the element button")
+    public void user_presses_the_element_button() {
         uS01_WebTablesPage.elementsCard.click();
 
     }
@@ -88,11 +88,11 @@ public class US01_WebTablesStepDefinitions {
     }
     @And("user presses the edit button")
     public void user_presses_the_edit_button() {
-        uS01_WebTablesPage.edit.click();
+        Driver.waitAndClick(uS01_WebTablesPage.edit);
     }
     @And("user presses the delete button")
     public void Press_Delete_Button() {
-
+        ReusableMethods.waitFor(1);
         name = uS01_WebTablesPage.firstRow.getText();
         uS01_WebTablesPage.deleteTab.click();
     }

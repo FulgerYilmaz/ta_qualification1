@@ -11,29 +11,26 @@ import static base_url_setup.PetStoreBaseUrl.petstore;
 
 public class Hooks {
 
-    @Before(order=2, value="@")
+    @Before(value="@UI")
     public void beforeScenario() {
-
         Driver.getDriver().get(ConfigReader.getProperty("url"));
     }
 
-    @Before(order=3, value="@ ")
-    public void beforeRegistration() {
+//    @Before(order=3, value="@ ")
+//    public void beforeRegistration() {
+//        Driver.getDriver().get("https://demoqa.com/account/register");
+//    }
 
-        Driver.getDriver().get("https://demoqa.com/account/register");
-    }
-
-    @Before(order=3, value="@Api")
+    @Before(value="@Api")
     public void beforeApi() {
-
         petstore();
     }
 
-    @After(order=3, value="@UI")
-    public void tearDown(Scenario scenario) throws IOException {
+    @After(value="@UI")
+    public void tearDown(Scenario scenario) {
+        final byte[] screenshot = ((TakesScreenshot) Driver.getDriver())
+                .getScreenshotAs(OutputType.BYTES);
 
-
-        final byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
         if (scenario.isFailed()) {
             scenario.attach(screenshot, "image/png", "Screenshot");
         }

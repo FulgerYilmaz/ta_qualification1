@@ -1,13 +1,13 @@
-Feature: US08_UploadDownload
-
+@UploadDownload
+Feature: US02 UploadDownload
 
   Background:
     Given user goes to landing page
-    Then user presses the elements button
+    And user presses the elements button
 
-  Scenario: TC_01_Upload
+  Scenario:TC01_Upload_and_Download
     When user clicks the upload button
-    When user chooses the file button
+    And user chooses the file button
     Then verify the visibility of the selected file
-    Then user download a file
-    And Verify the visibility of the downloaded file
+    When user download a file
+    Then Verify the visibility of the downloaded file

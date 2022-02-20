@@ -25,7 +25,7 @@ public class US02_UploadDownloadStepDefinitions {
     @Given("user chooses the file button")
     public void user_chooses_the_file_button() {
          WebElement upload_file = uploadDownloadPage.chooseFileButton;
-         upload_file.sendKeys("C:/Users/MRN/Pictures/mesaj.png");
+         upload_file.sendKeys("C:\\Users\\Public\\Pictures\\New folder");
           uploadDownloadPage.chooseFileButton.click();
           uploadDownloadPage.chooseFileButton.sendKeys("C:/Users/Asus/Pictures/message.png");
     }
