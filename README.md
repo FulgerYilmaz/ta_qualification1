@@ -1,4 +1,4 @@
-# ta_qualification
+# TOOLS QA
 
 - WEB & API Automation Testing Using Java, cucumber and restAssured
 
