@@ -14,8 +14,8 @@ import org.junit.runner.RunWith;
         },
         features = "./src/test/resources/features",
         glue = "stepdefinitions",
-        tags = "@webTables",
-        dryRun = true
+        tags = "@UI",
+        dryRun = false
 )
 public class TestRunner {
 }

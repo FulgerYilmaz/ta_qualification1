@@ -13,7 +13,7 @@ public class Hooks {
 
     @Before(value="@UI")
     public void beforeScenario() {
-        Driver.getDriver().get(ConfigReader.getProperty("url"));
+        Driver.getDriver().get(ConfigReader.getProperty("demoqa_url"));
     }
 
 //    @Before(order=3, value="@ ")

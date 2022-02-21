@@ -28,6 +28,8 @@ public class ReadTxt {
             while (line != null) {
                 // String ssn = line.split(",")[0]; sadece ssn veriyor
                 idList.add(line.split(",")[0]);
+                idList.add(line.split(",")[1]);
+                idList.add(line.split(",")[2]);
                 line = br.readLine();
             }
         } catch (Exception e) {

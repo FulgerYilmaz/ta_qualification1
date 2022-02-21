@@ -40,9 +40,9 @@ public class PetSoldApiSteps {
             WriteToTxt.PetApiData(fileNameSold, petStatusOut);
             List<String> expectedData = new ArrayList<>();
 
-            expectedData.add("12");
-            expectedData.add("32777890");
-            expectedData.add("20593238");
+            expectedData.add("9");
+            expectedData.add("38852226");
+            expectedData.add("9223372016854961249");
             System.out.println(expectedData);
 
             ReadTxt.petStatusData(fileNameSold);

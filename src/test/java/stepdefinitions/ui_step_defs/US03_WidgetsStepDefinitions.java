@@ -19,10 +19,7 @@ public class US03_WidgetsStepDefinitions {
     public void userPressesWidgetSection() {
         ReusableMethods.waitFor(1);
         datePicker.widgetTab.click();
-
-
     }
-
     @And("user presses the date picker button")
     public void userPressesTheDatePickerButton() {
 
@@ -32,16 +29,9 @@ public class US03_WidgetsStepDefinitions {
         actions.sendKeys(Keys.PAGE_UP).perform();
         ReusableMethods.waitFor(2);
     }
-    @And("user clicks calender")
-    public void user_clicks_calender() {
-        actions.sendKeys(Keys.PAGE_DOWN).perform();
-        ReusableMethods.waitFor(1);
-        Driver.waitAndClick( datePicker.dataPickerTab);
-        actions.sendKeys(Keys.PAGE_UP).perform();
-        ReusableMethods.waitFor(2);
-    }
-        @And("User clicks calender")
-        public void User_clicks_calender() {
+        @And("User clicks date and time box")
+        public void User_clicks_date_and_time_box() {
+
         Driver.waitAndClick(datePicker.dateSelected1);
         }
         @And("user writes {string},{string},{string}")
@@ -51,8 +41,8 @@ public class US03_WidgetsStepDefinitions {
         dropdownYear.selectByVisibleText(year);
         //months
         int dataMonths = Integer.parseInt(month) - 1;
-        Select dropdownAy = new Select(datePicker.selectMonths);
-        dropdownAy.selectByIndex(dataMonths);
+        Select dropdownMonth = new Select(datePicker.selectMonths);
+        dropdownMonth.selectByIndex(dataMonths);
         ReusableMethods.waitFor(1);
         //day
         for (int i = 1; i < 8; i++) {
@@ -60,6 +50,7 @@ public class US03_WidgetsStepDefinitions {
             WebElement calenderDay = datePicker.getDay(i);
             if (calenderDay.getText().equals("1")) {
                 int certainDay = Integer.parseInt(day);
+                ReusableMethods.waitFor(1);
                 datePicker.getDay((i + certainDay - 1)).click();
                 ReusableMethods.waitFor(1);
                 break;

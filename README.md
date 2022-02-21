@@ -41,9 +41,9 @@ Running tests in CI/CD pipeline:
 ```  
 ### About api scenarios:
 Automated scenarios are:
-- Get Pet Request (api)
-- Get Pet Request (api)
-- Post Pet Request (api)
+- Get Request pet /petId (api)
+- Get Request pet/findByStatus (api)
+- Post Request store/order (api)
 
 ### About ui scenarios:
 Automated scenarios are:

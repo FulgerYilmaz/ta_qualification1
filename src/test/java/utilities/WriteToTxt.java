@@ -11,15 +11,17 @@ public class WriteToTxt {
             BufferedWriter writer = new BufferedWriter(fileWriter);
             for (int i = 0; i < petStatusOuts.length; i++) {
                 if (petStatusOuts[i] != null) {
-                    writer.append(petStatusOuts[i].getId() + ",\n");
-                            if(petStatusOuts[i].getPetStatusInner() !=null) {
-                                writer.append(  petStatusOuts[i].getPetStatusInner().getId()
-                                        + "," + petStatusOuts[i].getPetStatusInner().getName() + ",\n");
-                }else{
+                    writer.append(petStatusOuts[i].getId() + ",");
+//                            if(petStatusOuts[i].getPetStatusInner() !=null) {
+//                                writer.append(  petStatusOuts[i].getPetStatusInner().getId()
+//                                        + "," + petStatusOuts[i].getPetStatusInner().getName() + ",\n");
+//                }
+                }
+               else{
                         writer.append("\n");
                     }
                 }
-            }
+
             writer.close();
             petStatusOut petStatusOut1 = new petStatusOut();
         } catch (Exception e) {
