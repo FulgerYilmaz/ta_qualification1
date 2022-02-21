@@ -1,4 +1,4 @@
-@webTables
+@webTables @UI
 Feature: US01 WebTables
 
   Background:

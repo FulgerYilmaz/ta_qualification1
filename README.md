@@ -13,7 +13,7 @@
 - [webdrivermanager](https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager)
 - [jackson-databind](https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind)
 - [rest-assured](https://mvnrepository.com/artifact/io.rest-assured/rest-assured)
-- [hamcrest](https://mvnrepository.com/artifact/org.hamcrest/hamcrest)
+
 
 ### Setting Up
 These instructions will get you a copy of the project up and running on your local machine.

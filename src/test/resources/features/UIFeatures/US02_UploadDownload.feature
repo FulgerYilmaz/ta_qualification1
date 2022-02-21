@@ -1,4 +1,4 @@
-@UploadDownload
+@UploadDownload @UI
 Feature: US02 UploadDownload
 
   Background:

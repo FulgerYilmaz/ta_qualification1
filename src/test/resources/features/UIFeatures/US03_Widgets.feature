@@ -1,4 +1,4 @@
-@dataPicker
+@dataPicker @UI
 Feature: US03 date picker_maple
 
   Background:
