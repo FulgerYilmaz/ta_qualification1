@@ -4,7 +4,7 @@
 
 - Test results monitoring tool [Calliope.pro](https://app.calliope.pro)
 
-- Environment and specs: [automationpractice](https://demoqa.com/)
+- Environment and specs: [demoqa](https://demoqa.com/)
 
 ### dependencies:
 - [selenium-java](https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java)

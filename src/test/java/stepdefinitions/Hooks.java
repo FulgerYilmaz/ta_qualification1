@@ -6,7 +6,6 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import utilities.ConfigReader;
 import utilities.Driver;
-import java.io.IOException;
 import static base_url_setup.PetStoreBaseUrl.petstore;
 
 public class Hooks {
@@ -15,12 +14,6 @@ public class Hooks {
     public void beforeScenario() {
         Driver.getDriver().get(ConfigReader.getProperty("demoqa_url"));
     }
-
-//    @Before(order=3, value="@ ")
-//    public void beforeRegistration() {
-//        Driver.getDriver().get("https://demoqa.com/account/register");
-//    }
-
     @Before(value="@Api")
     public void beforeApi() {
         petstore();
@@ -30,7 +23,6 @@ public class Hooks {
     public void tearDown(Scenario scenario) {
         final byte[] screenshot = ((TakesScreenshot) Driver.getDriver())
                 .getScreenshotAs(OutputType.BYTES);
-
         if (scenario.isFailed()) {
             scenario.attach(screenshot, "image/png", "Screenshot");
         }

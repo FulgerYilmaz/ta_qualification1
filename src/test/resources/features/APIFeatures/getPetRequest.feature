@@ -1,4 +1,4 @@
-@PetStore @getPetId
+@Api @getPetId
 Feature:get request
 
   Scenario:TC01_get_request

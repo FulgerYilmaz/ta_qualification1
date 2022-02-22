@@ -1,4 +1,4 @@
-@PetStore @postRequest
+@Api @postRequest
 Feature:post_request
 
   Scenario:TC01_post_request
