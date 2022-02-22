@@ -6,9 +6,9 @@ import io.restassured.response.Response;
 import static io.restassured.RestAssured.given;
 
 public class ApiRequestsUtils {
-    public static Response getRequest( String endPoint){
 
-        Response response = given().headers(
+    public static Response getRequest( String endPoint){
+        return given().headers(
                         "Content-Type",
                         ContentType.JSON,
                         "Accept",
@@ -19,7 +19,5 @@ public class ApiRequestsUtils {
                 .contentType(ContentType.JSON)
                 .extract()
                 .response();
-
-        return response;
     }
 }

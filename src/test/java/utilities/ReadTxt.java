@@ -11,7 +11,6 @@ public class ReadTxt {
         try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
             String line = br.readLine();
             while (line != null) {
-                // String ssn = line.split(",")[0]; sadece ssn veriyor
                 ssnList.add(line.split(",")[1]);
 
                 line = br.readLine();
@@ -26,7 +25,6 @@ public class ReadTxt {
         try (BufferedReader br = new BufferedReader(new FileReader(fileNameSold))) {
             String line = br.readLine();
             while (line != null) {
-                // String ssn = line.split(",")[0]; sadece ssn veriyor
                 idList.add(line.split(",")[0]);
                 idList.add(line.split(",")[1]);
                 idList.add(line.split(",")[2]);

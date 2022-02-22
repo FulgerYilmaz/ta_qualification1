@@ -6,5 +6,3 @@ Feature:post_request
     Then creates data with userID 8 petId 9
     Then user verifies that status code is 200.
     And Validates user Id and petId fields
-
-

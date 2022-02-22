@@ -12,30 +12,31 @@ import utilities.ReusableMethods;
 
 
 public class US03_WidgetsStepDefinitions {
-      Actions actions = new Actions(Driver.getDriver());
-      US03_WidgetsPage datePicker = new US03_WidgetsPage();
+    Actions actions = new Actions(Driver.getDriver());
+    US03_WidgetsPage datePicker = new US03_WidgetsPage();
 
     @And("user presses widget section")
     public void userPressesWidgetSection() {
         ReusableMethods.waitFor(1);
         datePicker.widgetTab.click();
     }
+
     @And("user presses the date picker button")
     public void userPressesTheDatePickerButton() {
-
         actions.sendKeys(Keys.PAGE_DOWN).perform();
         ReusableMethods.waitFor(1);
         datePicker.dataPickerTab.click();
         actions.sendKeys(Keys.PAGE_UP).perform();
         ReusableMethods.waitFor(2);
     }
-        @And("User clicks date and time box")
-        public void User_clicks_date_and_time_box() {
 
-        Driver.waitAndClick(datePicker.dateSelected1);
-        }
-        @And("user writes {string},{string},{string}")
-        public void user_writes (String year, String month, String day) {
+    @And("User clicks date and time box")
+    public void User_clicks_date_and_time_box() {
+        ReusableMethods.waitAndClick(datePicker.dateSelected1, 1);
+    }
+
+    @And("user writes {string},{string},{string}")
+    public void user_writes(String year, String month, String day) {
         //year
         Select dropdownYear = new Select(datePicker.selectYear);
         dropdownYear.selectByVisibleText(year);
@@ -59,12 +60,10 @@ public class US03_WidgetsStepDefinitions {
             }
         }
     }
-        @And("verify that info {string},{string},{string}")
-        public void verify_that_info(String year, String month, String day) {
+
+    @And("verify that info {string},{string},{string}")
+    public void verify_that_info(String year, String month, String day) {
         String sendDate = month + "/" + day + "/" + year;
-        System.out.println("send date:  " + month + "/" + day + "/" + year);
-        System.out.println("respond date: " + datePicker.dateLastTab.getAttribute("value"));
-        System.out.println("-----------------------------------------------------------");
-        Assert.assertTrue(datePicker.dateLastTab.getAttribute("value").equals(sendDate));
+        Assert.assertEquals(datePicker.dateLastTab.getAttribute("value"), sendDate);
     }
 }

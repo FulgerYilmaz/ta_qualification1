@@ -12,39 +12,42 @@ import static io.restassured.RestAssured.given;
 
 public class postPetRequestStepDef {
 
-    HashMap<String,Object> requestBody;
-    ExpectedData expectedData= new ExpectedData();
+    HashMap<String, Object> requestBody;
     Response response;
-    String url;
+    String endpoint;
 
     @Given("user sends a Post request")
     public void user_sends_a_post_request() {
-         url="https://petstore.swagger.io/v2/store/order";
-
+        endpoint = "/store/order";
     }
 
     @Then("user verifies that status code is {int}.")
     public void userVerifiesThatStatusCodeIs(int statusCode) {
-
-        Assert.assertTrue(response.getStatusCode()==statusCode);
-
+        Assert.assertEquals(statusCode, response.getStatusCode());
     }
 
     @And("Validates user Id and petId fields")
     public void ValidatesuserIdandpetIdfields() {
-        JsonPath jsonPath=response.jsonPath();
-        Assert.assertEquals(requestBody.get("petId"),jsonPath.getInt("petId"));
-
+        JsonPath jsonPath = response.jsonPath();
+        Assert.assertEquals(requestBody.get("petId"), jsonPath.getInt("petId"));
     }
 
     @Then("creates data with userID {int} petId {int}")
-    public void createsDataWithUserIDPetId(int arg0, int arg1) {
-        requestBody=expectedData.postData();
-        System.out.println(requestBody);
-        response=given().contentType(ContentType.JSON).body(requestBody).when().post(url);
+    public void createsDataWithUserIDPetId(int userId, int petId) {
+        requestBody = createReqBody(userId, petId);
+        response = given().contentType(ContentType.JSON).body(requestBody).when().post(endpoint);
         response.prettyPrint();
+    }
 
-
+    public HashMap<String, Object> createReqBody(int userId, int petId) {
+        HashMap<String, Object> reqBody = new HashMap<>();
+        reqBody.put("id",userId);
+        reqBody.put("petId", petId);
+        reqBody.put("quantity", 0);
+        reqBody.put("shipDate", "2022-02-19T20:34:01.698Z");
+        reqBody.put("status", "placed");
+        reqBody.put("complete", true);
+        return reqBody;
     }
 }
 

@@ -22,11 +22,11 @@ public class US01_WebTablesStepDefinitions {
     }
     @And("user presses the web tables button")
     public void user_presses_the_web_tables_button() {
-         Driver.waitAndClick(uS01_WebTablesPage.webTables);
+         ReusableMethods.waitAndClick(uS01_WebTablesPage.webTables, 1);
     }
     @Given("user clicks the add button")
     public void user_click_the_add_button() {
-         Driver.waitAndClick(uS01_WebTablesPage.add);
+        ReusableMethods.waitAndClick(uS01_WebTablesPage.add, 2);
     }
     @And("user writes firstName {string}")
     public void user_writes_firstName(String arg0) {
