@@ -8,6 +8,7 @@ import pages.US02_UploadDownloadPage;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
+import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -16,7 +17,7 @@ public class US02_UploadDownloadStepDefinitions {
     US02_UploadDownloadPage uploadDownloadPage = new US02_UploadDownloadPage();
     Actions actions = new Actions(Driver.getDriver());
 
-    private String filePath = "src/test/resources/files/message.png";
+    private File file = new File("src/test/resources/files/message.png");
 
     @And("user clicks the upload button")
     public void user_clicks_the_upload_button() {
@@ -26,7 +27,7 @@ public class US02_UploadDownloadStepDefinitions {
 
     @Given("user chooses the file button")
     public void user_chooses_the_file_button() {
-        uploadDownloadPage.chooseFileButton.sendKeys(filePath);
+        uploadDownloadPage.chooseFileButton.sendKeys(file.getAbsolutePath());
     }
 
     @Given("verify the visibility of the selected file")

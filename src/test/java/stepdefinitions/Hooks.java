@@ -17,6 +17,7 @@ public class Hooks {
 
     @Before(value = "@Api")
     public void beforeApi() {
+
         RestAssured.baseURI = ConfigReader.getProperty("api_base_url");
     }
 

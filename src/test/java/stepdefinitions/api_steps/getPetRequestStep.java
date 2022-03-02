@@ -14,9 +14,7 @@ public class getPetRequestStep {
 
     @Given("user sends get request for {int} pet id")
     public void user_sends_get_request_for_pet_id(int id) {
-
-        String url="https://petstore.swagger.io/v2/pet/"+id;
-        response=given().accept("application/json").when().get(url);
+        response=given().accept("application/json").when().get(String.valueOf(id));
 
     }
     @Then("user prints to response on terminal")
@@ -33,9 +31,6 @@ public class getPetRequestStep {
     public void user_confirms_that_name_field_is(String expectedName) {
         JsonPath jsonPath=response.jsonPath();
         Assert.assertEquals(expectedName,jsonPath.getString("name"));
-
-
-
     }
 
 }
