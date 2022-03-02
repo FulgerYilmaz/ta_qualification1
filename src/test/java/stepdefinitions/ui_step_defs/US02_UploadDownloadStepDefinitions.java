@@ -16,6 +16,8 @@ public class US02_UploadDownloadStepDefinitions {
     US02_UploadDownloadPage uploadDownloadPage = new US02_UploadDownloadPage();
     Actions actions = new Actions(Driver.getDriver());
 
+    private String filePath = "src/test/resources/files/message.png";
+
     @And("user clicks the upload button")
     public void user_clicks_the_upload_button() {
         actions.sendKeys(Keys.PAGE_DOWN).perform();
@@ -24,7 +26,7 @@ public class US02_UploadDownloadStepDefinitions {
 
     @Given("user chooses the file button")
     public void user_chooses_the_file_button() {
-        uploadDownloadPage.chooseFileButton.sendKeys("C:/Users/Asus/Pictures/message.png");
+        uploadDownloadPage.chooseFileButton.sendKeys(filePath);
     }
 
     @Given("verify the visibility of the selected file")
