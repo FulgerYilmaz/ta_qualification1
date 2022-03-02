@@ -35,8 +35,13 @@ public abstract class Driver {
                 case "chrome-headless":
                     WebDriverManager.chromedriver().setup();
                     ChromeOptions options = new ChromeOptions();
-                    options.addArguments("headless");
-                    options.addArguments("disable-gpu");
+                    options.addArguments("--window-size=1920,1080");
+                    options.addArguments("--disable-gpu");
+                    options.addArguments("--disable-extensions");
+                    options.addArguments("--proxy-server='direct://'");
+                    options.addArguments("--proxy-bypass-list=*");
+                    options.addArguments("--start-maximized");
+                    options.addArguments("--headless");
                     driver = new ChromeDriver(options);
                     break;
             }
