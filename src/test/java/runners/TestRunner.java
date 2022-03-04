@@ -9,12 +9,12 @@ import org.junit.runner.RunWith;
         plugin = {
                 "html:test-output/default-cucumber-reports.html",
                 "json:test-output/json-reports/cucumber.json",
-                "junit:test-output/xml-report/cucumber.xml",
+                "junit:test-output/xml-reports/cucumber.xml",
                 "rerun:test-output/failedRerun.txt"
         },
         features = "./src/test/resources/features",
         glue = "stepdefinitions",
-        tags = "",
+        tags = "@smoke",
         dryRun = false
 )
 public class TestRunner {

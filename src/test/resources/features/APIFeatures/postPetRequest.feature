@@ -1,4 +1,4 @@
-@Api @postRequest
+@Api @postRequest @smoke
 Feature:post_request
 
   Scenario:TC01_post_request

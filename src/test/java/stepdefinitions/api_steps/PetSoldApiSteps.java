@@ -2,9 +2,7 @@ package stepdefinitions.api_steps;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
+import io.cucumber.java.en.*;
 import io.restassured.response.Response;
 import org.junit.Assert;
 import pojos.petStatusOut;
@@ -28,7 +26,6 @@ public class PetSoldApiSteps {
     public void user_sends_petStatusSold_get_request() {
         response = getRequest(petFindByStatusEndpoint);
     }
-
     @When("user deserializes the sold pet data")
     public void user_deserializes_the_sold_pet_data() throws JsonProcessingException {
         ObjectMapper obj = new ObjectMapper();

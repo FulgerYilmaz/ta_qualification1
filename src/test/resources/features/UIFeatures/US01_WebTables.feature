@@ -1,4 +1,4 @@
-@webTables @UI
+@webTables @UI @smoke
 Feature: US01 WebTables
 
   Background:

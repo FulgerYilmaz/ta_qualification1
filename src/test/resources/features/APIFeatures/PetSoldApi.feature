@@ -1,4 +1,4 @@
-@Api @PetSold
+@Api @PetSold @smoke
 Feature: All sold pet data to be tested
 
   Scenario:TC01_get_request_sold_pet

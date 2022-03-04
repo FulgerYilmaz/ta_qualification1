@@ -25,6 +25,6 @@ jobs:
       - name: Upload results to Calliope
         run: curl -X POST
           -H "x-api-key:${{ secrets.API_KEY }}"
-          -H "multipart/form-data"
+          -H "Content-Type:multipart/form-data"
           -F "file[]=@test-output/json-reports/cucumber.json"
-          "https://app.calliope.pro/api/v2/profile/${{ secrets.PROFILE_ID }}/import/cucumber?os=myos&platform=myplatform&build=mybuild"
+          "https://app.calliope.pro/api/v2/profile/${{ secrets.PROFILE_ID }}/import?tag[]=os:myos&tag[]=platform:myplatform&tag[]=build:mybuild"
